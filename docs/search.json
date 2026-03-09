@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "test2.html",
+    "href": "test2.html",
+    "title": "Tutorial 2",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "test2.html#quarto",
+    "href": "test2.html#quarto",
+    "title": "Tutorial 2",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "test2.html#running-code",
+    "href": "test2.html#running-code",
+    "title": "Tutorial 2",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "MMI_Labs.html",
+    "href": "MMI_Labs.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "We’ll be using the UK Demographic dataset on Moodle https://moodle.gla.ac.uk/mod/book/view.php?id=5162592.\nWe’ll use this dataset to explore morphological parameters and covariables.\nWe’re going to perform statistical tests on the data and visualise the data."
+  },
+  {
+    "objectID": "MMI_Labs.html#dataset",
+    "href": "MMI_Labs.html#dataset",
+    "title": "Introduction",
+    "section": "",
+    "text": "We’ll be using the UK Demographic dataset on Moodle https://moodle.gla.ac.uk/mod/book/view.php?id=5162592.\nWe’ll use this dataset to explore morphological parameters and covariables.\nWe’re going to perform statistical tests on the data and visualise the data."
+  },
+  {
+    "objectID": "MMI_Labs.html#r-programming",
+    "href": "MMI_Labs.html#r-programming",
+    "title": "Introduction",
+    "section": "R programming",
+    "text": "R programming\nWe’re using R, which is free software that can be used on Mac’s, Windows, or Linux-based computing systems.\nYou’ll find that R is used extensively for data analysis, because it’s very effective for statistical testing and for visualising data.\nSo you will come across it multiple times as a student, but also in general research.\nTherefore, it’s really important to understand how it works - but you do not need to know every bit of code, but rather what the code allows you to do and how to interpret results.\nRStudio, is the user-interface for R which makes it easier for us to work with - rather than working on the command line!\nSo, just remember that the programming language is R, but the interface we usually work off of is RStudio.\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  }
+]
