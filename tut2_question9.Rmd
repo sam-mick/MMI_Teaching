@@ -1,0 +1,74 @@
+```{r sampling}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+MMILabData = read.csv("MMILabData.csv", header = T, stringsAsFactors = T, na.strings = " ")
+MMILabData = MMILabData[-154,]
+MMILabData = na.omit(MMILabData)
+lm_results = summary(lm(MMILabData$Height ~ MMILabData$LengthLeftFoot))
+lm_results2 = summary(lm(MMILabData$Height ~ MMILabData$Sex))
+```
+
+Question
+========
+1. **How much of the variation in Height can be predicted by LengthLeftFoot? ? Round to nearest whole number**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(round(lm_results[["adj.r.squared"]]*100))`
+:::
+
+2. **Perform another regression analysis for Height dependent on the LengthLeftFoot. Is LengthLeftFoot or Sex more powerful in predicting Height?**
+
+::: {style="padding-left: 2em;"}
+The LengthLeftFoot predicts ~ `r add_cloze(round(lm_results[["adj.r.squared"]]*100))` of the variation in height.
+
+Sex predicts ~ `r add_cloze(round(lm_results2[["adj.r.squared"]]*100))` of the variation in height.
+
+Therefore, Sex is slightly `r add_cloze("more", c("less","more"))` powerful than LengthLeftFoot in predicting Height.
+:::
+
+3. **Is this meaningfully better?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze("It's a small difference, so it's probably not meaningfully better.", c("It's a small difference, so it's probably not meaningfully better.", "Both are significant (p < 0.05), so therefore it is extremely meaningfully better."))`
+:::
+
+3. **What is the likely cause and effect relationship between LengthLeftFoot and Height?**
+
+```{r table2}
+#| echo: false
+ans <- character(3)
+sol <- logical(3)
+
+ans[1] <- "Length of the left foot depends on height"
+sol[1] <- FALSE
+
+ans[2] <- "Height depends on the length of the left foot"
+sol[2] <- FALSE
+
+ans[3] <- "Both height and the length of the left foot are independent outcomes of sex"
+sol[3] <- TRUE
+
+ans[4] <- "There are likely other factors that affect height, like genetic variants, or maternal, foetal, and childhood nutrition"
+sol[4] <- TRUE
+
+```
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(setNames(sol, ans), type = "mchoice")`
+:::
+
+
+`r format_metainfo("answerlist")`
+
+
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

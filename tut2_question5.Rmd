@@ -1,0 +1,142 @@
+```{r sampling}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+MMILabData = read.csv("MMILabData.csv", header = T, stringsAsFactors = T, na.strings = " ")
+lm_results = summary(lm(MMILabData$LengthLeftFoot ~ MMILabData$LengthRightFoot))
+```
+
+Question
+========
+1. **How much of the variation in LengthLeftFoot can be predicted by LengthRightFoot?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(round(lm_results[["r.squared"]], digits = 4))`
+:::
+
+2. **What is the probability that we would have observed an association of this magnitude if the null hypothesis were correct, and we had collected a random sample of the population? You can just copy the answer directly from the output.**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze("< 2.2e-16")`
+:::
+
+3. **Should we reject the null hypothesis?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze("Yes", c("Yes", "No"))`
+:::
+
+4. **What is the null hypothesis for the intercept value for the assocation between LengthLeftFoot and LengthRightFoot? (e.g, what null hypothesis can we think of for the value of the LengthLeftFoot, when the LengthRightFoot is set to 0). Choose 1 correct answer.**
+
+
+```{r table2}
+#| echo: false
+ans <- character(3)
+sol <- logical(3)
+
+ans[1] <- "0 - when the intercept value (i.e. the LengthRightFoot) is set to 0, the explanatory variable (i.e. the LengthLeftFoot) is also 0."
+sol[1] <- TRUE
+
+ans[2] <- "> 0 - when the intercept value (i.e. the LengthRightFoot) is set to 0, the explanatory variable (i.e. the LengthLeftFoot) will be greater than 0."
+sol[2] <- FALSE
+
+ans[3] <- "< 0 - when the intercept value (i.e. the LengthRightFoot) is set to 0, the explanatory variable (i.e. the LengthLeftFoot) will be greater than 0."
+sol[3] <- FALSE
+
+
+```
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(setNames(sol, ans), type = "mchoice")`
+:::
+
+
+5. **What is the predicted intercept in the association test for LengthLeftFoot and LengthRightFoot?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(lm_results[["coefficients"]][1])`
+:::
+
+6. **What is the probability that we would have observed an intercept of this magnitude if the null hypothesis were correct?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(lm_results[["coefficients"]][7])`
+:::
+
+
+
+7. **Should we reject the null hypothesis regarding the intercept? HINT: Have a look at your scatterplot.**
+
+```{r table3}
+#| echo: false
+ans <- character(2)
+sol <- logical(2)
+
+ans[1] <- "Yes - the p-value is less than 0.05, so we can reject the null hypothesis for the intercept."
+sol[1] <- FALSE
+
+ans[2] <- "No - there is potentially an issue in the data"
+sol[2] <- TRUE
+
+```
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(setNames(sol, ans), type = "mchoice")`
+:::
+
+8. **Think about the results of your T test which compared the mean lengths, and the results of the linear regression which tested for the association between lengths. Do these results make biological sense?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze("Yes", c("Yes", "No"))`
+:::
+
+`r format_metainfo("answerlist")`
+
+Solution
+========
+```{r fart}
+#| echo: false
+lm_results
+```
+
+**For question 1**, determining how much of the variation in LengthLeftFoot can be predicted by knowing the LengthRightFoot is given by the **Adjusted R-squared** value - so **`r round(lm_results[["r.squared"]], digits = 4)`**.
+
+**For question 2**, the probability that we would have observed an association of this magnitude if the null hypothesis were correct, and we had collected a random sample of the population, is simply given by the **p-value** - which we can see is **< 2.2e-16** so we'll use that as an answer. Note that this is not the exact p-value, but just saying that the p-value is less than this very significant value.
+
+**For question 3**, given that this p-value is less than 0.05 we would be inclined to reject the null hypothesis - suggesting that it is extremely unlikely that we would observe the association between these two variables if the null was correct and our sample was unbiased with respect to this parameter. Therefore, we can be highly confident in rejecting the null hypothesis.
+
+**For question 4**, if we're looking at the intercept, then the x-axis value is set to 0, and we're asking what the value in our y-axis should be. If the x-axis is the length of the right foot and at the intercept this is set to the value of 0, does it make sense to assume the null hypothesis of the length of the left foot would be anything other than 0 as well?
+
+**For question 5**, the actual predicted intercept in the association test for LengthLeftFoot and LengthRightFoot is returned in the Coefficients section, looking at the **(Intercept)** and the **Estimate** section - which is **`r lm_results[["coefficients"]][1]`**. So, when the LengthRightFoot is 0, the predicted LengthLeftFoot is **`r lm_results[["coefficients"]][1]`**, which means that for most people they have a bigger left foot!
+
+As an aside, the value below the (Intercept) is MMILabData$LengthRightFoot - the values here indicate the predicted increase in LengthLeftFoot with every unit increase of LengthRightFoot. So, for every unit increase in LengthRightFoot, there's a predicted increase of `r lm_results[["coefficients"]][2]`.
+
+**For question 6**, the probability that we would have observed an intercept of this magnitude is given in the same **Coefficients** section, at the end **Pr(>|t|)**. We can see this is **`r lm_results[["coefficients"]][7]`**.
+
+**For question 7**, we've asked if we should reject the null hypothesis based on this information. Now, the p-value is less than 0.05 so it seems that we can be confident in rejecting the null hypothesis. 
+
+However, based on our biological knowledge there might not be any reason to expect that the intercept wouldn't be zero. Does it make sense that one foot is 1cm bigger than the other? 
+
+If we look at the scatter plot we'll see at least one outlier - someone has a 20cm right foot and a 30cm left foot! 
+
+It is possible this is a measurement and/or reporting error, or that we have just been unlucky and happened to have a sample that has been skewed by one or a few individuals who happened to have longer left feet. 
+
+The latter would be an example of a type I error where we incorrectly reject the null hypothesis due to sampling error!
+
+So, be wary of blindly accepting significant results - and think more on if the data is appropriate to begin with, or if the results make sense biologically!
+
+**For question 8**, the results mostly make sense. We expect the relationship between the length of the left and right foot to be very similar within an individual (balance would probably be an issue if we had very different feet lengths), but different between individuals, broadly dependent on their overall size. 
+
+From the T test, we see the lack of difference in mean lengths of left and right feet in the population - which wouldn't be suprising. 
+
+We also expect that the intercept for the association between length of left and right feet to be zero (i.e., someone with a vanishingly small right foot should have a vanishingly small left foot) which we mostly see, and for the majority of people there is no huge difference in feet length. 
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

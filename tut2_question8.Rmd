@@ -1,0 +1,59 @@
+```{r sampling}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+MMILabData = read.csv("MMILabData.csv", header = T, stringsAsFactors = T, na.strings = " ")
+MMILabData = MMILabData[-154,]
+MMILabData = na.omit(MMILabData)
+lm_results = summary(lm(MMILabData$LengthLeftFoot ~ MMILabData$Sex))
+```
+
+Question
+========
+1. **How much of the variation in LengthLeftFoot can be predicted by Sex? Round to nearest whole number.**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(round(lm_results[["adj.r.squared"]]*100))`
+:::
+
+2. **What is the probability that we would have observed an association of this magnitude if the null hypothesis were correct?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(c("2.2e-16" = FALSE, "> 2.2e-16" = FALSE, "< 2.2e-16" = TRUE), type = "schoice")`
+:::
+
+3. **What is the intercept for the regression analysis between LengthLeftFoot and Sex?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(lm_results[["coefficients"]][1])`
+:::
+
+4. **Use the results of the regression analysis to produce a formula for predicting LengthLeftFoot dependent on Sex.**
+
+::: {style="padding-left: 2em;"}
+Length of the left foot = `r add_cloze(lm_results[["coefficients"]][1])` (+ `r add_cloze(lm_results[["coefficients"]][2])`if male) cm
+:::
+
+5. **What is the likely cause and effect relationship between LengthLeftFoot and Sex?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(c("Length of the left foot drives differences in sex" = FALSE, "Sex is fully responsible for the length of the left foot" = FALSE, "Sex accounts for some variation in the length of the foot length, but is not the only reason" = TRUE), type = "schoice")`
+:::
+
+6. **If we wanted to justify our answer, what could we say?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(c("The p-value is less than 0.05, therefore sex is fully responsible for differences in the length of the left foot" = FALSE, "It's partially responsible, biological sex is defined by presence of the SRY gene on the Y-chromosome - so sex and the left foot length are likely both independent outcomes from the presence of SRY" = TRUE, "It's unlikely that sex influences the length of the left foot" = FALSE), type = "schoice")`
+:::
+
+`r format_metainfo("answerlist")`
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

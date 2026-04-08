@@ -1,21 +1,27 @@
 ---
-title: "Introduction"
+title: "1. Introduction"
 author: "Sam McAllister"
-format: html
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    toc-title: Contents
+    number-sections: true
 editor: visual
 ---
 
 ## Dataset
 
-We'll be using the **UK Demographic dataset** on Moodle <https://moodle.gla.ac.uk/mod/book/view.php?id=5162592>.
+We'll be using the **UK Demographic dataset** on [Moodle](https://moodle.gla.ac.uk/mod/book/view.php?id=5162592).
 
-We'll use this dataset to explore morphological parameters and [covariables](https://research-coaches.com/dictionary/covariable/){.uri}.
+We'll use this data set to explore morphological parameters and [covariables](https://research-coaches.com/dictionary/covariable/){.uri}.
 
 We're going to perform [statistical tests](https://www.statisticssolutions.com/statistical-tests/) on the data and visualise the data.
 
 ## R programming
 
-We're using R, which is free software that can be used on Mac's, Windows, or Linux-based computing systems.
+We're using R, which is free software that can be used on Mac, Windows, or Linux-based computing systems.
 
 You'll find that R is used extensively for data analysis, because it's very effective for statistical testing and for visualising data.
 
@@ -27,15 +33,14 @@ RStudio, is the user-interface for R which makes it easier for us to work with -
 
 So, just remember that the programming language is R, but the interface we usually work off of is RStudio.
 
-```{r}
-1 + 1
-```
+## Downloading R and RStudio
 
-You can add options to executable code like this
+Downloading R and RStudio is very simple.
 
-```{r}
-#| echo: false
-2 * 2
-```
+First, [download R](https://www.stats.bris.ac.uk/R/).
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Make sure that you download the version that matches your operating system (e.g. a Windows PC needs Windows, an Apple Mac needs macOS).
+
+Then, [download RStudio](https://posit.co/download/rstudio-desktop/).
+
+Make sure that you download the version that matches your operating system (e.g. a Windows PC needs Windows 10/11, an Apple Mac needs macOS 14/15/16).

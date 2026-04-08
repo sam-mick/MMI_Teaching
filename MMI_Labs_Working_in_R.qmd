@@ -1,0 +1,71 @@
+---
+title: "2. Understanding R"
+author: "Sam McAllister"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    code-overflow: wrap
+editor: visual
+---
+
+## 1. Open RStudio
+
+If on a **Mac**, use the Finder to locate the **RStudio** application.
+
+If on **Windows**, you can use the search bar at the bottom and look for **RStudio**.
+
+Even though we install R, **we do not need to open this**. RStudio works off of R, so we need it installed, but it knows where everything is and uses it in the background.
+
+## 2. Open a new script
+
+At the top of RStudio, press **File \> New File \> R Script**.
+
+The R script is what we write code on, which we then run parts of the script or code to take an effect.
+
+When you have opened the R script, you will notice that there are 4 panels to work from:
+
+-   **Source** - top left, this lets you work on a script and save it, necessary for writing code!
+
+-   **Environment** - top right, will tell you what data exists in your session.
+
+-   **Console** - bottom left, this is a simplified version of the command line on R, whenever we run code from the script we will see it running down here
+
+-   **Plots, Help, Packages** - bottom right, where we will see plots, where we can look for help in RStudio, and see what packages are already loaded.
+
+![](https://docs.posit.co/ide/user/ide/get-started/images/rstudio-panes-labeled.jpeg)
+
+## 3. Create a folder to store data
+
+Outside of RStudio, create a folder to store the data you'll work with in this tutorial.
+
+You might want to name it "**MMI_Lab_1**".
+
+If you haven't already, download the UK Demographic dataset on [Moodle](https://moodle.gla.ac.uk/mod/book/view.php?id=5162592), and store it in the MMI_Lab_1 folder. This will be the **UK_Demographic.csv** file.
+
+::: {.callout-note appearance="simple"}
+## Note
+
+A .csv file is one that contains "comma-separated values".
+
+Think of it like Excel, instead of each value being in a cell, they are separated by commas. You can open it with a programme like "Notepad" to see what the format really looks like.
+
+If you open this file in Excel, DO NOT SAVE IT, as the hidden format will change and it will be difficult to load in R.
+:::
+
+## 4. Change the working directory
+
+A working directory is the location R is currently working in, so we can load or save data in this directory. You'll see the current working directory, as below, in the **console**.
+
+![](images/clipboard-3314005215.png)
+
+You can change the working directory by clicking on the Session \> Set Working Directory \> Choose Directory.
+
+Set the working directory to the MMI_Labs_1 folder that you created.
+
+## 5. Save and work from the Rscript
+
+To save the script, hit **File** \> **Save As**.
+
+Maybe give it a memorable name, like MMI_Lab_1.R.

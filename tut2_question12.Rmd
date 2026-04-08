@@ -1,0 +1,39 @@
+```{r dipit}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+```
+
+Question
+========
+The chi-square test will test:
+`r add_cloze(solution = "the number of observations in each class and see if these deviate from those expected under the null hypothesis",choices = c("the number of observations in each class and see if these deviate from those expected under the null hypothesis","whether the mean of one group is statistically different from the mean of another group", "for a relationship between our variables"), type = "schoice")`
+
+And the variables for this are: 
+`r add_cloze(solution = "categorical",choices = c("categorical","continuous", "can be either continuous or categorical"), type = "schoice")`
+
+The T-test will test:
+`r add_cloze(solution = "whether the mean of one group is statistically different from the mean of another group",choices = c("the number of observations in each class and see if these deviate from those expected under the null hypothesis","whether the mean of one group is statistically different from the mean of another group", "for a relationship between our variables"), type = "schoice")`
+
+And the variables for this are: 
+`r add_cloze(solution = "continuous",choices = c("categorical","continuous", "can be either continuous or categorical"), type = "schoice")`
+
+A linear regression will test:
+`r add_cloze(solution = "for a relationship between our variables",choices = c("the number of observations in each class and see if these deviate from those expected under the null hypothesis","whether the mean of one group is statistically different from the mean of another group", "for a relationship between our variables"), type = "schoice")`
+
+And the variables for this are: 
+`r add_cloze(solution = "either continuous and/or categorical",choices = c("categorical","continuous", "either continuous and/or categorical"), type = "schoice")`
+
+`r format_metainfo("answerlist")`
+
+
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE
