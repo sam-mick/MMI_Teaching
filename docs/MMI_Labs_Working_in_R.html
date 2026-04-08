@@ -8,7 +8,7 @@
 
 <meta name="author" content="Sam McAllister">
 
-<title>1. Introduction – Me, Myself, and I - R Lab Workbook</title>
+<title>2. Understanding R – Me, Myself, and I - R Lab Workbook</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -43,7 +43,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-adfb2833bc15652ec5881dc6381ea988.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ece42c8223ec2bf36298a08f122c9a68.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -93,11 +93,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./MMI_Labs.html" aria-current="page"> 
+    <a class="nav-link" href="./MMI_Labs.html"> 
 <span class="menu-text">1. Introduction</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./MMI_Labs_Working_in_R.html"> 
+    <a class="nav-link active" href="./MMI_Labs_Working_in_R.html" aria-current="page"> 
 <span class="menu-text">2. Understanding R</span></a>
   </li>  
   <li class="nav-item">
@@ -122,27 +122,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset"><span class="header-section-number">1</span> Dataset</a></li>
-  <li><a href="#r-programming" id="toc-r-programming" class="nav-link" data-scroll-target="#r-programming"><span class="header-section-number">2</span> R programming</a></li>
-  <li><a href="#downloading-r-and-rstudio" id="toc-downloading-r-and-rstudio" class="nav-link" data-scroll-target="#downloading-r-and-rstudio"><span class="header-section-number">3</span> Downloading R and RStudio</a></li>
+  <li><a href="#open-rstudio" id="toc-open-rstudio" class="nav-link active" data-scroll-target="#open-rstudio">1. Open RStudio</a></li>
+  <li><a href="#open-a-new-script" id="toc-open-a-new-script" class="nav-link" data-scroll-target="#open-a-new-script">2. Open a new script</a></li>
+  <li><a href="#create-a-folder-to-store-data" id="toc-create-a-folder-to-store-data" class="nav-link" data-scroll-target="#create-a-folder-to-store-data">3. Create a folder to store data</a></li>
+  <li><a href="#change-the-working-directory" id="toc-change-the-working-directory" class="nav-link" data-scroll-target="#change-the-working-directory">4. Change the working directory</a></li>
+  <li><a href="#save-and-work-from-the-rscript" id="toc-save-and-work-from-the-rscript" class="nav-link" data-scroll-target="#save-and-work-from-the-rscript">5. Save and work from the Rscript</a></li>
   </ul>
 </nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">1. Introduction</h1>
+<h1 class="title">2. Understanding R</h1>
 </div>
 
 
@@ -165,28 +164,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="dataset" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="dataset"><span class="header-section-number">1</span> Dataset</h2>
-<p>We’ll be using the <strong>UK Demographic dataset</strong> on <a href="https://moodle.gla.ac.uk/mod/book/view.php?id=5162592">Moodle</a>.</p>
-<p>We’ll use this data set to explore morphological parameters and <a href="https://research-coaches.com/dictionary/covariable/" class="uri">covariables</a>.</p>
-<p>We’re going to perform <a href="https://www.statisticssolutions.com/statistical-tests/">statistical tests</a> on the data and visualise the data.</p>
+<section id="open-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="open-rstudio">1. Open RStudio</h2>
+<p>If on a <strong>Mac</strong>, use the Finder to locate the <strong>RStudio</strong> application.</p>
+<p>If on <strong>Windows</strong>, you can use the search bar at the bottom and look for <strong>RStudio</strong>.</p>
+<p>Even though we install R, <strong>we do not need to open this</strong>. RStudio works off of R, so we need it installed, but it knows where everything is and uses it in the background.</p>
 </section>
-<section id="r-programming" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="r-programming"><span class="header-section-number">2</span> R programming</h2>
-<p>We’re using R, which is free software that can be used on Mac, Windows, or Linux-based computing systems.</p>
-<p>You’ll find that R is used extensively for data analysis, because it’s very effective for statistical testing and for visualising data.</p>
-<p>So you will come across it multiple times as a student, but also in general research.</p>
-<p>Therefore, it’s really important to understand how it works - but <strong>you do not need to know every bit of code</strong>, but rather what the code allows you to do and <strong>how to interpret results</strong>.</p>
-<p>RStudio, is the user-interface for R which makes it easier for us to work with - rather than working on the command line!</p>
-<p>So, just remember that the programming language is R, but the interface we usually work off of is RStudio.</p>
+<section id="open-a-new-script" class="level2">
+<h2 class="anchored" data-anchor-id="open-a-new-script">2. Open a new script</h2>
+<p>At the top of RStudio, press <strong>File &gt; New File &gt; R Script</strong>.</p>
+<p>The R script is what we write code on, which we then run parts of the script or code to take an effect.</p>
+<p>When you have opened the R script, you will notice that there are 4 panels to work from:</p>
+<ul>
+<li><p><strong>Source</strong> - top left, this lets you work on a script and save it, necessary for writing code!</p></li>
+<li><p><strong>Environment</strong> - top right, will tell you what data exists in your session.</p></li>
+<li><p><strong>Console</strong> - bottom left, this is a simplified version of the command line on R, whenever we run code from the script we will see it running down here</p></li>
+<li><p><strong>Plots, Help, Packages</strong> - bottom right, where we will see plots, where we can look for help in RStudio, and see what packages are already loaded.</p></li>
+</ul>
+<p><img src="https://docs.posit.co/ide/user/ide/get-started/images/rstudio-panes-labeled.jpeg" class="img-fluid"></p>
 </section>
-<section id="downloading-r-and-rstudio" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="downloading-r-and-rstudio"><span class="header-section-number">3</span> Downloading R and RStudio</h2>
-<p>Downloading R and RStudio is very simple.</p>
-<p>First, <a href="https://www.stats.bris.ac.uk/R/">download R</a>.</p>
-<p>Make sure that you download the version that matches your operating system (e.g.&nbsp;a Windows PC needs Windows, an Apple Mac needs macOS).</p>
-<p>Then, <a href="https://posit.co/download/rstudio-desktop/">download RStudio</a>.</p>
-<p>Make sure that you download the version that matches your operating system (e.g.&nbsp;a Windows PC needs Windows 10/11, an Apple Mac needs macOS 14/15/16).</p>
+<section id="create-a-folder-to-store-data" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-folder-to-store-data">3. Create a folder to store data</h2>
+<p>Outside of RStudio, create a folder to store the data you’ll work with in this tutorial.</p>
+<p>You might want to name it “<strong>MMI_Lab_1</strong>”.</p>
+<p>If you haven’t already, download the UK Demographic dataset on <a href="https://moodle.gla.ac.uk/mod/book/view.php?id=5162592">Moodle</a>, and store it in the MMI_Lab_1 folder. This will be the <strong>UK_Demographic.csv</strong> file.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A .csv file is one that contains “comma-separated values”.</p>
+<p>Think of it like Excel, instead of each value being in a cell, they are separated by commas. You can open it with a programme like “Notepad” to see what the format really looks like.</p>
+<p>If you open this file in Excel, DO NOT SAVE IT, as the hidden format will change and it will be difficult to load in R.</p>
+</div>
+</div>
+</section>
+<section id="change-the-working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="change-the-working-directory">4. Change the working directory</h2>
+<p>A working directory is the location R is currently working in, so we can load or save data in this directory. You’ll see the current working directory, as below, in the <strong>console</strong>.</p>
+<p><img src="images/clipboard-3314005215.png" class="img-fluid"></p>
+<p>You can change the working directory by clicking on the Session &gt; Set Working Directory &gt; Choose Directory.</p>
+<p>Set the working directory to the MMI_Labs_1 folder that you created.</p>
+</section>
+<section id="save-and-work-from-the-rscript" class="level2">
+<h2 class="anchored" data-anchor-id="save-and-work-from-the-rscript">5. Save and work from the Rscript</h2>
+<p>To save the script, hit <strong>File</strong> &gt; <strong>Save As</strong>.</p>
+<p>Maybe give it a memorable name, like MMI_Lab_1.R.</p>
 
 
 </section>
