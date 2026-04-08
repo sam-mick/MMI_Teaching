@@ -1,1 +1,0 @@
-# MMI_Teaching
