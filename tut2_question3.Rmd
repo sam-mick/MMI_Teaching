@@ -1,0 +1,56 @@
+```{r sampling}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+MMILabData = read.csv("MMILabData.csv", header =T, stringsAsFactors = T, na.strings = "")
+ttest_results = t.test(MMILabData$LengthLeftFoot, MMILabData$LengthRightFoot)
+```
+
+Question
+========
+1. **What is the difference in mean length of LengthLeftFoot and LengthRightFoot?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze((ttest_results[["estimate"]][["mean of x"]] - ttest_results[["estimate"]][["mean of y"]]))`
+:::
+
+2. **What is the probability that we would have observed a difference of this magnitude if the null hypothesis were correct?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(ttest_results[["p.value"]])`
+:::
+
+3. **Should we reject the null hypothesis?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze("No", c("Yes", "No"))`
+:::
+
+`r format_metainfo("answerlist")`
+
+
+Solution
+========
+To find the difference in mean length, we simply look at the output of running the t.test - you'll see the last entry reads:
+
+sample estimates:
+mean of x mean of y 
+  24.21880  24.21285
+
+And this is simply the mean of x (LengthLeftFoot) and the mean of y (LengthRightFoot) - or whatever order you put these variables in the function, e.g. `t.test(x,y)`. To find the difference, do (mean x) - (mean y).
+
+The probability of observing this difference if the null hypothesis were correct is simply given by the p-value, which you can see on the output is 0.9634.
+
+This p-value is quite high, and greater than 0.05. So therefore, we fail to reject the null hypothesis. The p-value suggests that it is extremely likely we would have observed the very small difference in mean left and right feet by random sampling error if the null hypothesis was correct.
+
+So therefore, it looks like there's no real difference in the mean of the length of the left foot compared with the right.
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

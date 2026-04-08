@@ -1,0 +1,28 @@
+Question
+========
+What is the null hypothesis for the relationship between the mean values of LengthLeftFoot and LengthRightFoot?
+
+Answerlist
+----------
+* There is no difference in the mean of LengthLeftFoot and the mean of LengthRightFoot.
+* There is a difference in the mean of LengthLeftFoot and the mean of LengthRightFoot.
+* The LengthLeftFoot mean is greater than the mean LengthRightFoot.
+* There is no statistically significant difference, so we fail to reject the null hypothesis. 
+
+
+Solution
+========
+The null hypothesis would be that there is no difference in the mean of LengthLeftFoot and the mean of LengthRightFoot. 
+
+We have also not performed the statistical test for this yet, so we could not say whether we accept or reject the null hypothesis.
+
+Note that the question is comparing the means (or population averages), while the question of the previous tutorial for the chi-squared test was comparing proportions of males and females. These different questions will have different null hypothesis.
+
+For comparing means, we have to use T test. To determine if there is a significant difference between observed and expected frequencies, we use the Chi-squared test.
+
+
+Meta-information
+================
+exname: test quiz
+extype: schoice
+exsolution: 1000

@@ -1,0 +1,53 @@
+```{r sampling}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+MMILabData = read.csv("MMILabData.csv", header = T, stringsAsFactors = T, na.strings = " ")
+MMILabData = MMILabData[-154,]
+MMILabData = na.omit(MMILabData)
+lm_results = summary(lm(MMILabData$Height ~ MMILabData$Sex + MMILabData$LengthLeftFoot))
+lm_results2 = summary(lm(MMILabData$Height ~ MMILabData$Sex))
+lm_results3 = summary(lm(MMILabData$Height ~ MMILabData$LengthLeftFoot))
+```
+
+Question
+========
+1. **How much of the variation in Height can be predicted by LengthLeftFoot and Sex combined? ? Round to nearest whole number**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(round(lm_results[["adj.r.squared"]]*100))`
+:::
+
+2. **How confident are we that LengthLeftFoot and Sex are independent predictors of Height? For the values below, round to 2 decimal places**
+
+::: {style="padding-left: 2em;"}
+From the previous regression analysis, we found that LengthLeftFoot predicts ~ `r add_cloze(round(lm_results3[["adj.r.squared"]]*100, digits = 2))` of the variation in height.
+
+Likewise, sex was found to predict ~ `r add_cloze(round(lm_results2[["adj.r.squared"]]*100, digits = 2))` of the variation in height.
+
+If the two explanatory variables are truly independent, then the result of combining the two in the regression analysis would be additive, so the percentage variation being explained would be `r add_cloze(round(lm_results3[["adj.r.squared"]]*100, digits = 2)+round(lm_results2[["adj.r.squared"]]*100, digits = 2))`.
+
+Since the predicted variance for both explanatory variables accounts for only `r add_cloze(round(lm_results[["adj.r.squared"]]*100, digits = 2))` of the variance in Height, Sex and LengthLeftFoot `r add_cloze("are not", c("are", "are not"))` completely independent.
+
+Since the variance explained by both explanatory variables is also `r add_cloze("greater than", c("greater than", "less than"))` either explanatory variable alone, and the p-values for both explanatory variables are `r add_cloze("less than", c("greater than", "less than"))` 0.05, then they are `r add_cloze("partially independent", c("partially independent", "not independent at all"))`.
+:::
+
+3. **What is the formula derived from the regression analysis for predicting Height based on LengthLeftFoot and Sex?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(lm_results[["coefficients"]][1])` + ( `r add_cloze(lm_results[["coefficients"]][2])` * LengthLeftFoot) (+ `r add_cloze(lm_results[["coefficients"]][3])` if male) cm
+:::
+
+`r format_metainfo("answerlist")`
+
+
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

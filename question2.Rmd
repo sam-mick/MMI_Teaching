@@ -1,0 +1,17 @@
+```{r data generation, echo = FALSE, results = "hide"}
+dat = 5.5
+```
+
+Question
+========
+What is the result of the mean of values 1-10?
+
+Solution
+========
+``r dat`` is the correct value.
+
+Meta-information
+================
+extype: num
+exsolution: `r dat`
+exname: R functions

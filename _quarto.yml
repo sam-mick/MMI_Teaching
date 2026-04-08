@@ -1,0 +1,16 @@
+project: 
+  type: website
+  output-dir: docs
+  
+website: 
+  title: "Me, Myself, and I - R Lab Workbook"
+  navbar:
+    left: 
+      - MMI_Labs.qmd
+      - MMI_Labs_Working_in_R.qmd
+      - MMI_Labs_3.qmd
+      - MMI_Labs_4.qmd
+      - MMI_Labs_5.qmd
+
+filters: 
+  - collapse-output

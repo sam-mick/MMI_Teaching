@@ -1,0 +1,54 @@
+```{r}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+```
+
+
+Question
+========
+1. **What is the age of the youngest particpant?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(16)`
+:::
+
+2. **How many males participated in the data collection?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(218)`
+:::
+
+3. **What is the dominant foot for most people?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze("Right")`
+:::
+
+4. **How many variables are investigated?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(12)`
+:::
+
+5. **What does Length2DRH indicate?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze("Length of the 2nd Digit on the Right Hand", c("Length of the 2nd Digit on the Left Hand", "Length of the 2nd Digit on the Right Hand"))`
+:::
+
+`r format_metainfo("answerlist")`
+
+Solution
+========
+All the information can be found in the `summary` - if you're confused by Length... they follow this format: Length2DRH = Length of 2nd Digit on Right Hand, Length4DLH = Length of 4th Digit on Left Hand. 
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

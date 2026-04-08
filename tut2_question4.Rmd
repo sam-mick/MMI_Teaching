@@ -1,0 +1,32 @@
+Question
+========
+What is the null hypothesis for the relationship between the LengthLeftFoot and LengthRightFoot?
+
+Answerlist
+----------
+* There is an associaton between the LengthLeftFoot and the LengthRightFoot.
+* There is no difference in the mean LengthLeftFoot and the mean of LengthRightFoot.
+* There is no statistically signifcant association between LengthLeftFoot and LengthRightFoot, so we can reject the null hypothesis.
+* There is no associaton between the LengthLeftFoot and the LengthRightFoot.
+
+
+Solution
+========
+The null hypothesis would be that there is no association between the LengthLeftFoot and the LengthRightFoot. 
+
+We have also not performed the statistical test for this yet, so we could not say whether we accept or reject the null hypothesis.
+
+Note that this question relates specifically to the association between these two variables in individuals (i.e., does knowing anything about one variable provide any information about the other variable in a pair of observations from an individual)
+
+Note that the question is asking about the association between these two variables in individuals (so does knowing the values of one variable provide information about the other variable in individuals).
+
+The previous question for the T test was asking about comparing the means (or population averages) - so this is different from the relationship. As this is a different question, our null hypotheses will be different.
+
+To determine if there is a significant assocation between the two variables, we will use a regression analysis.
+
+
+Meta-information
+================
+exname: test quiz
+extype: schoice
+exsolution: 0001

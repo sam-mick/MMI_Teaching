@@ -1,0 +1,51 @@
+```{r name}
+#| include: false
+#| code-overflow: wrap
+
+library("exams")
+library("exams2forms")
+ukdemo <- read.csv("~/../../Downloads/UKDemographic.csv")
+ukdemo$Sex = as.factor(ukdemo$Sex)
+```
+
+Question
+========
+
+What are the results of each of these functions on Height?
+
+```{r name1}
+#| echo: false
+#| code-overflow: wrap
+height_tab = data.frame(Mean = mean(ukdemo$Height), 
+                  Median = median(ukdemo$Height),
+                  Max = max(ukdemo$Height),
+                  Min = min(ukdemo$Height), row.names = "Height")
+```
+
+```{r name2}
+#| echo: false
+#| code-overflow: wrap
+#| results: asis
+add_cloze(height_tab, cloze_attr = list(class = "wrapbox"))
+```
+
+```{r name3}
+#| echo: false
+#| code-overflow: wrap
+#| results: false
+format_metainfo("answerlist")
+```
+
+Solution
+========
+Copy the output of each function exactly.
+
+Be sure that you're using the Height column as well.
+Metainformation
+===============
+exname: height questions
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

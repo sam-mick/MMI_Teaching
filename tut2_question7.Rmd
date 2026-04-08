@@ -1,0 +1,54 @@
+```{r sampling}
+#| echo: false
+#| results: hide
+library(exams)
+library(exams2forms)
+MMILabData = read.csv("MMILabData.csv", header = T, stringsAsFactors = T, na.strings = " ")
+MMILabData = MMILabData[-154,]
+MMILabData = na.omit(MMILabData)
+tresults = t.test(MMILabData$LengthLeftFoot ~ MMILabData$Sex)
+```
+
+Question
+========
+1. **What is the difference in mean length of LengthLeftFoot between males and females?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(tresults[["estimate"]][["mean in group Male"]] - tresults[["estimate"]][["mean in group Female"]])`
+:::
+
+2. **What are the 95% confidence intervals for the difference in mean length of LengthLeftFoot between males and females?**
+
+::: {style="padding-left: 2em;"}
+`r add_cloze(tresults[["conf.int"]][1])` to `r add_cloze(tresults[["conf.int"]][2])`
+:::
+
+3. **What does the confidence interval values tell us?**
+
+::: {style="padding-left: 2em;"}
+Females feet are on average `r add_cloze(tresults[["conf.int"]][1])` to `r add_cloze(tresults[["conf.int"]][2])` units `r add_cloze("shorter", c("longer","shorter"))` than males.
+:::
+
+`r format_metainfo("answerlist")`
+
+Solution
+========
+```{r fart}
+#| echo: false
+tresults
+```
+
+**For question 1**, the mean of the male LengthLeftFoot is `r tresults[["estimate"]][["mean in group Male"]]` and the mean of the female LengthLeftFoot is `r tresults[["estimate"]][["mean in group Female"]]`. Simply subtract the higher number from the other.
+
+**For question 2**, the 95% confidence intervals for the difference in mean length of LengthLeftFoot between males and females is returned in the output under `95 percent confidence interval`. 
+
+**For question 3**, the confidence intervals tell us how the range in which  one level (Female) differs to another level (Male). This is why these values are negative, it tells us that the first level (Females) is less than the second (Males). The reason why it chooses Females first is a quirk of factors - it chooses the levels of a factor alphabetically, so it goes Females first then Males. To see this, you could run `levels(MMILabData$Sex)`. If you wanted to reorder the levels to Males then Females, you could do so by running `levels(MMILabData$Sex) = c("Males", "Females")`.
+
+Metainformation
+===============
+exname: penguins sex dimorphism
+extype: cloze
+exclozetype: `r format_metainfo("type")`
+exsolution: `r format_metainfo("solution")`
+extol: `r format_metainfo("tolerance")`
+exshuffle: TRUE

@@ -1,0 +1,9 @@
+/* Allow cloze inputs to wrap */
+.cloze-input, 
+.webex-solveme, 
+.learnr-text-input {
+  white-space: normal !important;
+  width: 100% !important;
+  display: inline-block !important;
+  overflow-wrap: break-word !important;
+}
